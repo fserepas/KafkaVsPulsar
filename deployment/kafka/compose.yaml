@@ -1,0 +1,141 @@
+name: ${COMPOSE_PROJECT_NAME:-iot-kafka}
+networks:
+  benchmark:
+    name: ${COMPOSE_PROJECT_NAME:-iot-kafka}_network
+volumes:
+  postgres-data:
+  mysql-data:
+  prometheus-data:
+  grafana-data:
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.7.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      KAFKA_OPTS: -javaagent:/jmx/jmx_prometheus_javaagent-0.20.0.jar=7070:/config/zookeeper-jmx-exporter.yml
+    volumes:
+      - ../../runtime/kafka/jmx:/jmx:ro
+      - ./zookeeper-jmx-exporter.yml:/config/zookeeper-jmx-exporter.yml:ro
+    networks: [benchmark]
+  kafka:
+    image: confluentinc/cp-kafka:7.7.0
+    depends_on: [zookeeper]
+    ports: ["127.0.0.1:29092:29092"]
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OPTS: -javaagent:/jmx/jmx_prometheus_javaagent-0.20.0.jar=7071:/config/kafka-jmx-exporter.yml
+    volumes:
+      - ../../runtime/kafka/jmx:/jmx:ro
+      - ./kafka-jmx-exporter.yml:/config/kafka-jmx-exporter.yml:ro
+    networks: [benchmark]
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.7.0
+    depends_on: [kafka]
+    ports: ["127.0.0.1:8081:8081"]
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
+    networks: [benchmark]
+  mqtt-broker:
+    image: ${MOSQUITTO_IMAGE:-eclipse-mosquitto:latest}
+    ports: ["127.0.0.1:1883:1883"]
+    volumes: ["./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro"]
+    networks: [benchmark]
+  kafka-connect:
+    image: confluentinc/cp-kafka-connect:7.7.0
+    depends_on: [kafka, schema-registry, mqtt-broker]
+    ports: ["127.0.0.1:8083:8083"]
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: kafka:9092
+      CONNECT_GROUP_ID: benchmark-connect
+      CONNECT_CONFIG_STORAGE_TOPIC: benchmark-connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: benchmark-connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: benchmark-connect-status
+      CONNECT_REST_ADVERTISED_HOST_NAME: kafka-connect
+      CONNECT_REST_PORT: 8083
+      CONNECT_PLUGIN_PATH: /usr/share/java,/opt/benchmark-connectors
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "true"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_TOPIC_CREATION_DEFAULT_PARTITIONS: 1
+      CONNECT_TOPIC_CREATION_DEFAULT_REPLICATION_FACTOR: 1
+      CONNECT_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1
+      CONFLUENT_SUPPORT_METRICS_ENABLE: "false"
+      KAFKA_LOG4J_OPTS: -Dlog4j.configuration=file:/config/connect-log4j.properties
+    volumes:
+      - ../../runtime/kafka/connectors:/opt/benchmark-connectors:ro
+      - ./connect-log4j.properties:/config/connect-log4j.properties:ro
+    networks: [benchmark]
+  postgres:
+    image: postgres:14-alpine
+    profiles: [postgres]
+    ports: ["127.0.0.1:5431:5432"]
+    environment:
+      POSTGRES_USER: user1
+      POSTGRES_DB: mqtt_db
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      TZ: UTC
+    command: [postgres, -c, timezone=UTC]
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../../sql/kafka/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks: [benchmark]
+  mysql:
+    image: mysql:8.0
+    profiles: [mysql]
+    ports: ["127.0.0.1:3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      MYSQL_DATABASE: mqtt_db
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      TZ: UTC
+    command: [--default-time-zone=+00:00]
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../../sql/kafka/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks: [benchmark]
+  ksqldb-server:
+    image: ${KSQLDB_IMAGE:-confluentinc/ksqldb-server:latest}
+    profiles: [ksqldb]
+    depends_on: [kafka, schema-registry]
+    environment:
+      KSQL_BOOTSTRAP_SERVERS: kafka:9092
+      KSQL_KSQL_SERVICE_ID: benchmark_
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      KSQL_KSQL_QUERIES_FILE: /config/init.sql
+      KSQL_KSQL_STREAMS_AUTO_OFFSET_RESET: earliest
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      TZ: UTC
+    volumes: ["./ksqldb/init.sql:/config/init.sql:ro"]
+    networks: [benchmark]
+  kafka-streams:
+    profiles: [streams]
+    build:
+      context: ../..
+      dockerfile: deployment/Dockerfile.kafka-streams
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      KAFKA_APPLICATION_ID: benchmark-temperature
+      TZ: UTC
+    networks: [benchmark]
+  load-generator:
+    profiles: [load]
+    build:
+      context: ../..
+      dockerfile: deployment/Dockerfile.load-generator
+    networks: [benchmark]

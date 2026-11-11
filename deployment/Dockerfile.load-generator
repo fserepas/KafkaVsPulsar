@@ -1,0 +1,4 @@
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY modules/mqtt-load-generator/target/MqttLoadGenerator-1.0-SNAPSHOT.jar /app/app.jar
+ENTRYPOINT ["java", "-cp", "/app/app.jar", "org.example.MqttLoadGenerator"]

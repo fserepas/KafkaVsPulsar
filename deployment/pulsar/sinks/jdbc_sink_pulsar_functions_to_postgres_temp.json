@@ -1,0 +1,23 @@
+{
+  "tenant": "public",
+  "namespace": "default",
+  "name": "jdbc_sink_pulsar_functions_to_postgres_temp",
+  "archive": "/pulsar/connectors/pulsar-io-jdbc-postgres-4.0.0.nar",
+  "className": "org.apache.pulsar.io.jdbc.PostgresJdbcAutoSchemaSink",
+  "inputs": [
+    "persistent://public/default/processed_temp"
+  ],
+  "configs": {
+    "userName": "user1",
+    "password": "__DB_PASSWORD__",
+    "jdbcUrl": "jdbc:postgresql://postgres:5432/mqtt_db",
+    "tableName": "pulsar_processed_to_db_temp",
+    "insertMode": "UPSERT",
+    "key": "message_id",
+    "nonKey": "temperature_fahrenheit,produced_timestamp,pulsar_timestamp,updated_temperature_celsius,processed_timestamp,payload",
+    "excludeNonDeclaredFields": true,
+    "batchSize": 3000,
+    "useJdbcBatch": true,
+    "useTransactions": true
+  }
+}

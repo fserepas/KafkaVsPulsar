@@ -1,0 +1,550 @@
+{
+  "description": "Exact companion runtime assets from the supplied deployment packages; retain included third-party notices.",
+  "files": [
+    {
+      "path": "runtime/kafka/connectors/jdbc/assets/confluent.png",
+      "size_bytes": 3156,
+      "sha256": "d85fb7dc69ead92612b683439fe1281defa6ce7f5f977651f023dd43b069d4ea"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/assets/jdbc.jpg",
+      "size_bytes": 33609,
+      "sha256": "2f536d1c3dd7c5bab1664467882223022d6eb40b1bfc6eed02660787b344eca3"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/LICENSE",
+      "size_bytes": 7003,
+      "sha256": "6392a9da8e2f4601254574a4990bfa0427d91b88a51139cb59fb789dd747a53d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/NOTICE",
+      "size_bytes": 729,
+      "sha256": "b37373b96a0d1c1ac7b40490c57b2e04e97a761a141261719956d9111fd76925"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/README.md",
+      "size_bytes": 1754,
+      "sha256": "d752ea9a65c18bc151b62e82a0fea011b805dd69c5f4d2f11bfba2b6c5e0795c"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses.html",
+      "size_bytes": 2949,
+      "sha256": "4aad7f5ee8b9905336c5dcc0bd3b7f018fa0b5d6c8a5a70f41feadda311f97c4"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-kafka-connect-jdbc-10.0.0-SNAPSHOT.txt",
+      "size_bytes": 569579,
+      "sha256": "e286d28230b2ec1af87c9aa939378615e0d0e5260cfb0c20274cf88e0f45226e"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-mssql-jdbc-8.4.1.jre8.txt",
+      "size_bytes": 1103,
+      "sha256": "b8a2080ff7cd57848d0141cc5f87f34ec7c567baadd8ee9f03136296c4cb3c4d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-ojdbc8-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-ons-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-oraclepki-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-orai18n-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-osdt_cert-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-osdt_core-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-postgresql-42.2.10.txt",
+      "size_bytes": 6891,
+      "sha256": "9cbd506ffaad61d41ad1ca87228eb9e850a23934035987e546a4abea3f515615"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-simplefan-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-sqlite-jdbc-3.25.2.txt",
+      "size_bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-ucp-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-xdb-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/licenses/LICENSE-xmlparserv2-19.7.0.0.txt",
+      "size_bytes": 5757,
+      "sha256": "9fbfd2ffce3ffef4e6a87912f416c8d8eeda7f344640121f4728544693b4418d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/doc/version.txt",
+      "size_bytes": 78,
+      "sha256": "013db70695d37123ff4a185dac4158ad8a8b0f1c7c477d5490ec6154f517c27b"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/etc/sink-quickstart-sqlite.properties",
+      "size_bytes": 1426,
+      "sha256": "0d36bd548552cc6ca22d71a4b0d1d6ce02fd3374edefde462cca271320450ba7"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/etc/source-quickstart-sqlite.properties",
+      "size_bytes": 1652,
+      "sha256": "9278328e6419b85bacf470aa6f5768af4b621dbf453d44e009f800d12a5348b7"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/checker-qual-3.5.0.jar",
+      "size_bytes": 214381,
+      "sha256": "729990b3f18a95606fc2573836b6958bcdb44cb52bfbd1b7aa9c339cff35a5a4"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/common-utils-7.0.12.jar",
+      "size_bytes": 17267,
+      "sha256": "eb46b5012364fd47aad6edaa529d2cc77352b933a12c4c6ac92fd6b2825db902"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/jtds-1.3.1.jar",
+      "size_bytes": 317816,
+      "sha256": "aac05ebf5504c91b29420129b02dd878a86c52f8fa6eccf9235e0bfd7a60bef1"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/kafka-connect-jdbc-10.8.0.jar",
+      "size_bytes": 286935,
+      "sha256": "e65af9273008541af91c47748273f74d9c7ec557e3db07d4a28ebac5cdefef28"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/mssql-jdbc-8.4.1.jre8.jar",
+      "size_bytes": 1300915,
+      "sha256": "d56ccbc811d34cb0536dd6b3eaf307ec7118b9e172ccd0bab32d07972fd7ba01"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/mysql-connector-j-9.2.0.jar",
+      "size_bytes": 2609756,
+      "sha256": "7e9941bbdcca244d878ea95bfff788fd9ba6a65af757f24be6c632930d61c7ed"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/ojdbc8-19.7.0.0.jar",
+      "size_bytes": 4398602,
+      "sha256": "4cb116d07ab9a414c84f92d28dd65c3ffb76cf66171ef0998e06618b972418d8"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/ons-19.7.0.0.jar",
+      "size_bytes": 156242,
+      "sha256": "c4e589c75a57e44d844e32fc537b6e19184f70f60a747d74c0d51747319ae615"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/oraclepki-19.7.0.0.jar",
+      "size_bytes": 311000,
+      "sha256": "b81cb5cf188b0d595b4acf201962dfb14ef165a6049e954ff695c0b5aa3b633f"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/orai18n-19.7.0.0.jar",
+      "size_bytes": 1663954,
+      "sha256": "afda4d825373effb57403e2d3a0b4d088af7b787c9ae62884d3083c4d3034105"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/osdt_cert-19.7.0.0.jar",
+      "size_bytes": 210337,
+      "sha256": "7a8caca6c1f2212d34e40f9818682d20fabaef500befdc275c3f6eb8eb993ccd"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/osdt_core-19.7.0.0.jar",
+      "size_bytes": 312200,
+      "sha256": "5500e14531f6e8f8ec6ca10ed7b6c7b229565569684e2f52a3841378be9d9302"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/postgresql-42.4.4.jar",
+      "size_bytes": 1046863,
+      "sha256": "807603b5e756e74a0f23bb9a84bb5a8cebfd417f123e86d2df9675ce0b6627f2"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/simplefan-19.7.0.0.jar",
+      "size_bytes": 32168,
+      "sha256": "2bacee6ea364f8de056460ede7a46ae9980a0b3ac22a5ef1da9daf8e27cf0ea0"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/slf4j-api-1.7.36.jar",
+      "size_bytes": 41125,
+      "sha256": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/sqlite-jdbc-3.41.2.2.jar",
+      "size_bytes": 12851127,
+      "sha256": "0cdab410947e04b6743df99cf1543267ddd107357d6f76948d145be590fd497d"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/ucp-19.7.0.0.jar",
+      "size_bytes": 1684253,
+      "sha256": "e359781b34abf281876dca469c98cc214a4c3cba4b51edab286466bc8d9f0256"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/xdb-19.7.0.0.jar",
+      "size_bytes": 265130,
+      "sha256": "21da0506c60170825cd22341d0de0e3de5fae93329359c0a62abb968638e0a21"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/lib/xmlparserv2-19.7.0.0.jar",
+      "size_bytes": 1933746,
+      "sha256": "944ae61d157fa8c9309d13fec28ef5a15a57b71aa3baa9145cda98a8700b5163"
+    },
+    {
+      "path": "runtime/kafka/connectors/jdbc/manifest.json",
+      "size_bytes": 2687,
+      "sha256": "9331f51d9242ae801073ff90636caa5fb004bbfea58f1305e1b6293cb6e41152"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/doc/LICENSE",
+      "size_bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/doc/README.md",
+      "size_bytes": 706,
+      "sha256": "adf470953710fa5e7dfc2e4b1c7afc5c7f6cf6aaf7d6ca7b6817ccf7b3c8eef9"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/etc/connect-avro-docker.properties",
+      "size_bytes": 1217,
+      "sha256": "de0acffe2f2780a6c31d16f33b7f354d210228dd9e94e6b121676cc0273035e2"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/checker-qual-2.10.0.jar",
+      "size_bytes": 201216,
+      "sha256": "d261fde25d590f6b69db7721d469ac1b0a19a17ccaaaa751c31f0d8b8260b894"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/commons-collections-3.2.2.jar",
+      "size_bytes": 588337,
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/commons-digester-1.8.1.jar",
+      "size_bytes": 146108,
+      "sha256": "b97b72b4201137262215dca60ceb84e6b664bf7fe428a4d62729de0239cafdb6"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/commons-logging-1.2.jar",
+      "size_bytes": 61829,
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/commons-validator-1.6.jar",
+      "size_bytes": 186077,
+      "sha256": "bd62795d7068a69cbea333f6dbf9c9c1a6ad7521443fb57202a44874f240ba25"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/connect-utils-0.4.162.jar",
+      "size_bytes": 151370,
+      "sha256": "fb1bccfa9607e78dd9869eb0e8fad7c9272d2166a69d6c485d21989d529959c3"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/error_prone_annotations-2.3.4.jar",
+      "size_bytes": 13879,
+      "sha256": "baf7d6ea97ce606c53e11b6854ba5f2ce7ef5c24dddf0afa18d1260bd25b002c"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/failureaccess-1.0.1.jar",
+      "size_bytes": 4617,
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/freemarker-2.3.28.jar",
+      "size_bytes": 1524587,
+      "sha256": "de92d103d3a86c2287307218ff50dc1c941de283f7b9e1fb23e93fc7220838bf"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/guava-28.2-jre.jar",
+      "size_bytes": 2788302,
+      "sha256": "fc3aa363ad87223d1fbea584eee015a862150f6d34c71f24dc74088a635f08ef"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/handy-uri-templates-2.1.8.jar",
+      "size_bytes": 46326,
+      "sha256": "6b83846f2ff61d0aaa66997b64b883ec7b65cf13b50a4d7f58250996d429be2e"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/j2objc-annotations-1.3.jar",
+      "size_bytes": 8781,
+      "sha256": "21af30c92267bd6122c0e0b4d20cccb6641a37eaf956c6540ec471d584e64a7b"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/jackson-annotations-2.11.0.jar",
+      "size_bytes": 68175,
+      "sha256": "b3b1fca6cb6469d4ea06635d964aaea91f86cc22fe42a9757c8a315148589e8e"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/jackson-core-2.11.0.jar",
+      "size_bytes": 351529,
+      "sha256": "b504d81351fb088f1e1bbef6a701faa88d2cfc4350483aeaa19384c39a8133fd"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/jackson-databind-2.11.0.jar",
+      "size_bytes": 1418028,
+      "sha256": "54e72b9fa38fc37986ae7f6fc30ef704eec8010206bcd4d63546dccbbb47f4d1"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/joda-time-2.10.2.jar",
+      "size_bytes": 642711,
+      "sha256": "d3d9f78f66ad8e8fbdcb4b4a43481eac95f3cdbcc0fe064542dfbe336c3a0e10"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/json-20190722.jar",
+      "size_bytes": 65003,
+      "sha256": "e35b3830de02a8992ca8beb6936f52ee80e509753d64469c8f0dde93e17a880b"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/jsr305-3.0.2.jar",
+      "size_bytes": 19936,
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/kafka-connect-json-schema-0.2.5.jar",
+      "size_bytes": 86895,
+      "sha256": "4c60f40cdc090cb9b49a64b5168e583e7ce6465accbb33b8ec02e9a353c7e4e8"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "size_bytes": 2199,
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/org.everit.json.schema-1.12.1.jar",
+      "size_bytes": 240930,
+      "sha256": "2444eadc87f6ad45b7434435f936bcfa9847fa52158f744b1f038d13d9aaec8e"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/lib/re2j-1.3.jar",
+      "size_bytes": 120871,
+      "sha256": "d8040fa1c54c1ce208199015b6e599ec2ef37b7780f8f55a8b4b4b4299bade19"
+    },
+    {
+      "path": "runtime/kafka/connectors/json-schema/manifest.json",
+      "size_bytes": 1409,
+      "sha256": "a4bbf6642212b82bc38e6893e5721788211119d2777bc1865ee94f37b35bedc5"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/assets/mqtt.png",
+      "size_bytes": 8831,
+      "sha256": "aeb54a842d81614b59a22ebcdd2e1f7661c1c5fcb3006607d67b98c7a147a535"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/README.md",
+      "size_bytes": 3865,
+      "sha256": "b9917c4f3e5dd448130231f94177dc5608b58baf8632df9039f06071e81352fd"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-EDL-org.eclipse.paho.client.mqttv3-1.2.0.txt",
+      "size_bytes": 1564,
+      "sha256": "83bbba033dc985487e321b6dfde111772affb73460be48726299fed3da684b1c"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-connect-utils-0.3.140.txt",
+      "size_bytes": 23511,
+      "sha256": "95eeee31969afb45112d1c71175e845f0c6d51cc494e13f7e21dddd0209d5fd3"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-freemarker-2.3.25-incubating.txt",
+      "size_bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-guava-20.0.txt",
+      "size_bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-org.eclipse.paho.client.mqttv3-1.2.0.txt",
+      "size_bytes": 11232,
+      "sha256": "44277b2bec6093e4ac313afec251a4de599d24c4e768f8574d95b13a9d2d97b5"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/doc/licenses/LICENSE-slf4j-1.7.25.txt",
+      "size_bytes": 1135,
+      "sha256": "899cb2e2f92e74ec969e477503c6442fb50bec5d523bc87dc40bad3419113c3b"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/etc/connect-avro-docker.properties",
+      "size_bytes": 1923,
+      "sha256": "eb814e7877c6023258f632c6a23913585b4a328396d004d71097223d23193100"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/etc/source-anonymous.properties",
+      "size_bytes": 189,
+      "sha256": "9cc86c1506f6c44dc45de53f4d96d698766458a324a803747bddff1a26e45c83"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/etc/source-password.properties",
+      "size_bytes": 226,
+      "sha256": "c62c7f8b0c622b8b99251e7ca6dcf27d62cd828653d1ff772429d2d7506bee00"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/checker-qual-3.33.0.jar",
+      "size_bytes": 223979,
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/confluent-licensing-new-6.2.0-ce.jar",
+      "size_bytes": 55223,
+      "sha256": "9504e9c8d63ce7ef09d58a104cdcbea70f3d12b31e475a029c8a88704795d652"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/confluent-serializers-new-6.2.15-ce.jar",
+      "size_bytes": 955787,
+      "sha256": "9436764dc4de6a6619708cebbdfc7b4577882eed19442991724dc283c3177985"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/connect-licensing-extensions-0.8.45.jar",
+      "size_bytes": 12587,
+      "sha256": "e84358b111fd2606f9d6e59c2a7a327f8f9730de7c81276f60dcebdcd04473b8"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/connect-utils-0.3.3.jar",
+      "size_bytes": 175313,
+      "sha256": "5f490d3d818bf48d33f88d7af7254123c86ee81947d555963a5ab3054aad18f2"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/connect-utils-0.7.176.jar",
+      "size_bytes": 84428,
+      "sha256": "05387e785b41b7c995a3d66c992f7d14081b58ba517a855b90627d22e538d785"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/error_prone_annotations-2.18.0.jar",
+      "size_bytes": 16017,
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/failureaccess-1.0.1.jar",
+      "size_bytes": 4617,
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/freemarker-2.3.31.jar",
+      "size_bytes": 1715750,
+      "sha256": "68ecb4c5aa4934b7b50c38b0e495d7589e52dfb9d28b964ac2008b72090bfaae"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/gson-2.9.0.jar",
+      "size_bytes": 249277,
+      "sha256": "c96d60551331a196dac54b745aa642cd078ef89b6f267146b705f2c2cbef052d"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/guava-32.1.1-jre.jar",
+      "size_bytes": 3041245,
+      "sha256": "91fbba37f1c8b251cf9ea9e7d3a369eb79eb1e6a5df1d4bbf483dd0380740281"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/j2objc-annotations-2.8.jar",
+      "size_bytes": 9301,
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/jaxb-api-2.3.0.jar",
+      "size_bytes": 125632,
+      "sha256": "883007989d373d19f352ba9792b25dec21dc7d0e205a710a93a3815101bb3d03"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/jose4j-0.9.5.jar",
+      "size_bytes": 298683,
+      "sha256": "808fb3166f3e67dad9811c331029ab1681242fd52b735bc3f33f281167fcc72e"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/jsr305-3.0.2.jar",
+      "size_bytes": 19936,
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/kafka-connect-mqtt-1.7.3.jar",
+      "size_bytes": 36845,
+      "sha256": "df8e06a87ee850fba271e6732ef44a2403a30738de793b9b0e52f33814b2b3d5"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "size_bytes": 2199,
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/metrics-core-2.2.0.jar",
+      "size_bytes": 82123,
+      "sha256": "6b7a14a6f34c10f8683f7b5e2f39df0f07b58c7dff0e468ebbc713905c46979c"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/org.eclipse.paho.client.mqttv3-1.2.5.jar",
+      "size_bytes": 241861,
+      "sha256": "59914287adac506a28d5e8172eed262a22605f3df4d426b9d92f41dae2448185"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/protobuf-java-3.21.7.jar",
+      "size_bytes": 1671418,
+      "sha256": "a204ec68748a7b26351ae37a311e8de468f248d1916d5f8dbe812c1289d0a0ff"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/protobuf-java-util-3.21.7.jar",
+      "size_bytes": 73690,
+      "sha256": "9b98a2a4eb9ebc6103b14ab81badb82e32c8fe1d751aa4055830424974b7e142"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/lib/value-2.8.2.jar",
+      "size_bytes": 2960008,
+      "sha256": "e0c405100540b5628ae85c6a2c2d7dfe217e232050445481c573517d93016fa9"
+    },
+    {
+      "path": "runtime/kafka/connectors/mqtt/manifest.json",
+      "size_bytes": 1519,
+      "sha256": "f99fe6855e337a84b1d698369d177bd509e3434158ddcd8c3eebc7a77bc30d7c"
+    },
+    {
+      "path": "runtime/kafka/jmx/jmx_prometheus_javaagent-0.20.0.jar",
+      "size_bytes": 576924,
+      "sha256": "8b67ed40485d475648c36d11d21464b484406f85faf912b3363f71a6a7861320"
+    },
+    {
+      "path": "runtime/pulsar/mysql-connector-j-9.3.0.jar",
+      "size_bytes": 2593726,
+      "sha256": "6c8e6692b521376d89bc5618c16cdeaf8c61854329f4fa25677ed08776c5bb76"
+    },
+    {
+      "path": "runtime/pulsar/postgresql-42.7.5.jar",
+      "size_bytes": 1087908,
+      "sha256": "69020b3bd20984543e817393f2e6c01a890ef2e37a77dd11d6d8508181d079ab"
+    },
+    {
+      "path": "runtime/pulsar/pulsar-io-jdbc-mariadb-4.0.0.nar",
+      "size_bytes": 42692520,
+      "sha256": "0388d172f848a4f74ecf3ca5d206ebffa45b21062b319b1385fe1f3d3e1f5e57"
+    },
+    {
+      "path": "runtime/pulsar/pulsar-io-jdbc-postgres-4.0.0.nar",
+      "size_bytes": 43082848,
+      "sha256": "3044e8f62affe6be157d9e421c32eb30540069300bf547fc0941f46ad96f7746"
+    },
+    {
+      "path": "runtime/pulsar/pulsar-protocol-handler-mqtt-4.0.0.10.nar",
+      "size_bytes": 102715988,
+      "sha256": "1c6737d8dc1422601067cf3e2eb14b7e08315106ca0cc52d9d3d472e759e6336"
+    }
+  ]
+}

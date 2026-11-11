@@ -1,0 +1,60 @@
+name: ${COMPOSE_PROJECT_NAME:-iot-pulsar}
+networks:
+  benchmark:
+    name: ${COMPOSE_PROJECT_NAME:-iot-pulsar}_network
+volumes:
+  postgres-data:
+  mysql-data:
+  prometheus-data:
+  grafana-data:
+services:
+  pulsar:
+    image: apachepulsar/pulsar:4.0.0
+    command: [bin/pulsar, standalone]
+    environment:
+      PULSAR_FUNCTIONS_WORKER_HOSTNAME: pulsar
+      TZ: UTC
+    ports: ["127.0.0.1:6650:6650", "127.0.0.1:8080:8080", "127.0.0.1:1883:1883"]
+    volumes:
+      - ./standalone.conf:/pulsar/conf/standalone.conf:ro
+      - ../../runtime/pulsar/pulsar-protocol-handler-mqtt-4.0.0.10.nar:/pulsar/protocols/pulsar-protocol-handler-mqtt-4.0.0.10.nar:ro
+      - ../../runtime/pulsar/pulsar-io-jdbc-postgres-4.0.0.nar:/pulsar/connectors/pulsar-io-jdbc-postgres-4.0.0.nar:ro
+      - ../../runtime/pulsar/pulsar-io-jdbc-mariadb-4.0.0.nar:/pulsar/connectors/pulsar-io-jdbc-mariadb-4.0.0.nar:ro
+      - ../../modules/pulsar-functions/target/PulsarFunction-1.0-SNAPSHOT.jar:/pulsar/functions/PulsarFunction-1.0-SNAPSHOT.jar:ro
+      - ../../.generated/${RUN_INSTANCE:-manual}/pulsar:/pulsar/conf/benchmark:ro
+    networks: [benchmark]
+  postgres:
+    image: postgres:14-alpine
+    profiles: [postgres]
+    ports: ["127.0.0.1:5431:5432"]
+    environment:
+      POSTGRES_USER: user1
+      POSTGRES_DB: mqtt_db
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      TZ: UTC
+    command: [postgres, -c, timezone=UTC]
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ../../sql/pulsar/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks: [benchmark]
+  mysql:
+    image: mysql:8.0
+    profiles: [mysql]
+    ports: ["127.0.0.1:3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      MYSQL_DATABASE: mqtt_db
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Copy .env.example to .env}
+      TZ: UTC
+    command: [--default-time-zone=+00:00]
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../../sql/pulsar/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks: [benchmark]
+  load-generator:
+    profiles: [load]
+    build:
+      context: ../..
+      dockerfile: deployment/Dockerfile.load-generator
+    networks: [benchmark]

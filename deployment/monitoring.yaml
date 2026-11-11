@@ -1,0 +1,41 @@
+# Loaded after either platform's Compose file; relative paths use that base file.
+services:
+  node-exporter:
+    image: ${NODE_EXPORTER_IMAGE:-prom/node-exporter:latest}
+    profiles: [monitoring]
+    pid: host
+    command: [--path.rootfs=/host]
+    volumes: ["/:/host:ro,rslave"]
+    networks: [benchmark]
+  cadvisor:
+    image: ${CADVISOR_IMAGE:-gcr.io/cadvisor/cadvisor:latest}
+    profiles: [monitoring]
+    privileged: true
+    devices: ["/dev/kmsg:/dev/kmsg"]
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro
+    networks: [benchmark]
+  prometheus:
+    image: ${PROMETHEUS_IMAGE:-prom/prometheus:latest}
+    profiles: [monitoring]
+    ports: ["127.0.0.1:9090:9090"]
+    volumes:
+      - ../../monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks: [benchmark]
+  grafana:
+    image: ${GRAFANA_IMAGE:-grafana/grafana:latest}
+    profiles: [monitoring]
+    ports: ["127.0.0.1:3000:3000"]
+    environment:
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ../../monitoring/grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
+      - ../../monitoring/grafana/providers.yml:/etc/grafana/provisioning/dashboards/default.yml:ro
+      - ../../monitoring/grafana/dashboard.json:/var/lib/grafana/dashboards/dashboard.json:ro
+    networks: [benchmark]

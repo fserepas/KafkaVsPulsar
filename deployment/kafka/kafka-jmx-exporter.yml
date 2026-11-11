@@ -1,0 +1,45 @@
+lowercaseOutputName: true
+
+rules:
+  # 1. All “kafka.server” beans with type & name
+  - pattern: "kafka.server<type=(.+), name=(.+)><>Value"
+    name: "kafka_server_$1_$2"
+    type: GAUGE
+
+  # 2. Topic‑specific BrokerTopicMetrics
+  - pattern: "kafka.server<type=(.+), topic=(.+), name=(.+)><>Value"
+    name: "kafka_topic_$1_$2_$3"
+    type: GAUGE
+
+  # 3. Bytes in/out per second
+  - pattern: "kafka.server<type=BrokerTopicMetrics, name=(Bytes(In|Out)PerSec)><>OneMinuteRate"
+    name: "kafka_server_$1_oneminuterate"
+    type: GAUGE
+
+  - pattern: "kafka.server<type=BrokerTopicMetrics, name=(Bytes(In|Out)PerSec)><>MeanRate"
+    name: "kafka_server_$1_meanrate"
+    type: GAUGE
+
+  # 4. Request queue & local time
+  - pattern: "kafka.network<type=RequestMetrics, name=(.+)><>Max"
+    name: "kafka_network_request_$1_max"
+    type: GAUGE
+
+  - pattern: "kafka.network<type=RequestMetrics, name=(.+)><>OneMinuteRate"
+    name: "kafka_network_request_$1_oneminuterate"
+    type: GAUGE
+
+  # 5. Controller state
+  - pattern: "kafka.controller<type=KafkaController, name=(ActiveControllerCount)><>Value"
+    name: "kafka_controller_$1"
+    type: GAUGE
+
+  # 6. Under‑replicated partitions
+  - pattern: "kafka.server<type=ReplicaManager, name=(UnderReplicatedPartitions)><>Value"
+    name: "kafka_replicamanager_$1"
+    type: GAUGE
+
+  # 7. Cluster partition leaders
+  - pattern: "kafka.cluster<type=Partition, name=(LeaderCount)><>Value"
+    name: "kafka_cluster_$1"
+    type: GAUGE

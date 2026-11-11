@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "message_id": "m-1",
+    "timestamp": "2026-01-01T10:00:00.000000000",
+    "temperature": 86.0,
+    "payload": "sensor-a",
+    "kafka_timestamp": "2026-01-01T10:00:00.010000000"
+  }
+}

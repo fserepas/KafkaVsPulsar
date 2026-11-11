@@ -1,0 +1,23 @@
+name: Java build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Build all application modules
+        run: mvn -B clean verify
+      - name: Check experiment operator behavior
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate every Compose scenario
+        run: python3 scripts/validate-compose.py

@@ -1,0 +1,9 @@
+{
+  "message_id": "m-1",
+  "temperature_fahrenheit": 86.0,
+  "updated_temperature_celsius": 30.0,
+  "produced_timestamp": "2026-01-01T10:00:00.000000000",
+  "processed_timestamp": "2026-01-01T10:00:00.020000000",
+  "pulsar_timestamp": "2026-01-01T10:00:00.010000000",
+  "payload": "sensor-a"
+}

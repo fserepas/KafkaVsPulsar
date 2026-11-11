@@ -1,0 +1,7 @@
+.git
+.state
+.generated
+runtime
+results
+*.zip
+*.bundle

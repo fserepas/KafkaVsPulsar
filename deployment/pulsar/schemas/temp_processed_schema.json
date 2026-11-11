@@ -1,0 +1,5 @@
+{
+    "type": "JSON",
+    "schema": "{\"type\":\"record\",\"name\":\"SensorReadingProcessedTemp\",\"namespace\":\"org.example.SensorReadingClasses\",\"fields\":[{\"name\":\"message_id\",\"type\":\"string\"},{\"name\":\"temperature\",\"type\":\"double\"},{\"name\":\"processed_temperature\",\"type\":\"double\"},{\"name\":\"timestamp\",\"type\":\"string\"},{\"name\":\"processed_timestamp\",\"type\":\"string\"},{\"name\":\"payload\",\"type\":\"string\"}]}",
+    "properties": {}
+}

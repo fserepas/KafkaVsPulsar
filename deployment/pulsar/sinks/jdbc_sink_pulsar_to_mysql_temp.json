@@ -1,0 +1,23 @@
+{
+  "tenant": "public",
+  "namespace": "default",
+  "name": "jdbc_sink_pulsar_to_mysql_temp",
+  "archive": "/pulsar/connectors/pulsar-io-jdbc-mariadb-4.0.0.nar",
+  "inputs": [
+    "persistent://public/default/temp_schema"
+  ],
+  "configs": {
+    "jdbcUrl": "jdbc:mariadb://mysql:3306/mqtt_db?useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true",
+    "userName": "user1",
+    "password": "__DB_PASSWORD__",
+    "tableName": "pulsar_to_db_temp",
+    "insertMode": "UPSERT",
+    "key": "message_id",
+    "nonKey": "temperature,timestamp,pulsar_timestamp,payload",
+    "batchSize": 3000,
+    "useJdbcBatch": true,
+    "useTransactions": true,
+    "excludeNonDeclaredFields": true
+  },
+  "className": "org.apache.pulsar.io.jdbc.MariadbJdbcAutoSchemaSink"
+}
